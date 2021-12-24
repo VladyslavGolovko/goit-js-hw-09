@@ -6,9 +6,6 @@ const options = {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-    if (this.selectedDates < this.defaultDate) {
-      alert('Please choose a date in the future');
-    }
     console.log(selectedDates[0]);
   },
 };
