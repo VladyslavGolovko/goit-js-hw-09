@@ -10,6 +10,8 @@ const options = {
   },
 };
 
+flatpickr('#datetime-picker', options);
+
 const refs = {
   startBtn: document.querySelector('button[data-start]'),
   days: document.querySelector('span[data-days'),
@@ -43,8 +45,6 @@ function updateClockFace({ days, hours, minutes, seconds }) {
 function addLeadingZero(value) {
   return String(value).padStart(2, '0');
 }
-
-flatpickr('input#datetime-picker', options);
 
 function convertMs(ms) {
   const second = 1000;
