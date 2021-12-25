@@ -20,7 +20,7 @@ const refs = {
 const timer = {
   start() {
     refs.startBtn.disabled = true;
-    const startTime = flatpickr('#datetime-picker', options);
+    const startTime = Date.now();
 
     setInterval(() => {
       const currentTime = Date.now();
