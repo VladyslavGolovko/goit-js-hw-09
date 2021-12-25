@@ -10,8 +10,6 @@ const options = {
   },
 };
 
-flatpickr('#datetime-picker', options);
-
 const refs = {
   startBtn: document.querySelector('button[data-start]'),
   days: document.querySelector('span[data-days'),
@@ -22,7 +20,7 @@ const refs = {
 const timer = {
   start() {
     refs.startBtn.disabled = true;
-    const startTime = Date.now();
+    const startTime = flatpickr('#datetime-picker', options);
 
     setInterval(() => {
       const currentTime = Date.now();
