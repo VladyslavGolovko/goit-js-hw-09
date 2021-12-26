@@ -24,7 +24,7 @@ const options = {
       return;
     }
     startBtn.removeAttribute('disabled');
-    /*console.log(selectedDates[0]);*/
+    console.log(selectedDates[0]);
   },
 };
 const timer = {
