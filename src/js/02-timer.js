@@ -1,14 +1,7 @@
 import flatpickr from 'flatpickr';
 import 'flatpickr/dist/flatpickr.min.css';
-const options = {
-  enableTime: true,
-  time_24hr: true,
-  defaultDate: new Date(),
-  minuteIncrement: 1,
-  onClose(selectedDates) {
-    console.log(selectedDates[0]);
-  },
-};
+
+const fp = flatpickr('#datetime-picker', options);
 
 const refs = {
   startBtn: document.querySelector('button[data-start]'),
@@ -16,6 +9,23 @@ const refs = {
   hours: document.querySelector('span[data-hours]'),
   minutes: document.querySelector('span[data-minutes]'),
   seconds: document.querySelector('span[data-seconds]'),
+};
+
+const options = {
+  enableTime: true,
+  time_24hr: true,
+  defaultDate: new Date(),
+  minuteIncrement: 1,
+  onClose(selectedDates) {
+    const selectedDate = selectedDates[0].getTime();
+    const currentDate = this.config.defaultDate.getTime();
+    if (currentDate > selectedDate) {
+      alert(' Please choose a date in the future');
+      return;
+    }
+    startBtn.removeAttribute('disabled');
+    /*console.log(selectedDates[0]);*/
+  },
 };
 const timer = {
   start() {
