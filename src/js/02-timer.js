@@ -40,15 +40,13 @@ const timer = {
     setInterval(() => {
       const currentTime = Date.now();
       const ms = currentTime - startTime;
-      const time = convertMs(ms);
+      const { days, hours, minutes, seconds } = convertMs(ms);
       updateClockFace({ days, hours, minutes, seconds });
     }, 1000);
   },
 };
 
-refs.startBtn.addEventListener('click', () => {
-  timer.start();
-});
+refs.startBtn.addEventListener('click', timer.start.bind(timer));
 
 function updateClockFace({ days, hours, minutes, seconds }) {
   refs.days.textContent = days;
