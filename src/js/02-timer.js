@@ -4,10 +4,10 @@ import 'flatpickr/dist/flatpickr.min.css';
 const refs = {
   startBtn: document.querySelector('button[data-start'),
   datetimePickerInput: document.querySelector('#datetime-picker'),
-  daysField: document.querySelector('span[data-days'),
-  hoursField: document.querySelector('span[data-hours]'),
-  minutesField: document.querySelector('span[data-minutes]'),
-  secondsField: document.querySelector('span[data-seconds]'),
+  days: document.querySelector('span[data-days'),
+  hours: document.querySelector('span[data-hours]'),
+  minutes: document.querySelector('span[data-minutes]'),
+  seconds: document.querySelector('span[data-seconds]'),
 };
 let date = null;
 
