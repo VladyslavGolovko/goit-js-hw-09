@@ -1,5 +1,5 @@
 import flatpickr from 'flatpickr';
-import 'flatpickr/dist/flatpicker.min.css';
+import 'flatpickr/dist/flatpickr.min.css';
 
 const refs = {
   startBtn: document.querySelector('button[data-start'),
