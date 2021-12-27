@@ -41,7 +41,7 @@ const timer = {
       const currentTime = Date.now();
       const ms = currentTime - startTime;
       const time = convertMs(ms);
-      updateClockFace(time);
+      updateClockFace({ days, hours, minutes, seconds });
     }, 1000);
   },
 };
