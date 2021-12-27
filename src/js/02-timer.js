@@ -12,7 +12,6 @@ const refs = {
 };
 
 refs.startBtnEl.disabled = true;
-let counterTime = 0;
 
 const options = {
   enableTime: true,
