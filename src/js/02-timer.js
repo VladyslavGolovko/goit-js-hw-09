@@ -73,26 +73,3 @@ function convertMs(ms) {
 
   return { days, hours, minutes, seconds };
 }
-
-/*startBtn.disabled = true;
-startBtn.addEventListener('click', () => {
-  timer.end();
-});
-
-const timer = {
-  isActive: false,
-  end() {
-    if (this.isActive) {
-      return;
-    }
-    const endTime = Date.now();
-    this.isActive = true;
-
-    setInterval(() => {
-      const currentTime = Date.now();
-      const ms = currentTime - endTime;
-      const { days, hours, minutes, seconds } = convertMs(ms);
-      updateTimerValue();
-    }, 1000);
-  },
-};*/
