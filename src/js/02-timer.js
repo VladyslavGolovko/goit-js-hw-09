@@ -40,8 +40,8 @@ const timer = {
 
     setInterval(() => {
       const currentTime = Date.now();
-      const deltaTime = currentTime - startTime;
-      const time = convertMs(deltaTime);
+      const ms = currentTime - startTime;
+      const time = convertMs(ms);
       updateClockFace(time);
     }, 1000);
   },
