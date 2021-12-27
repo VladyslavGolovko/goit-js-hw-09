@@ -1,13 +1,15 @@
 import flatpickr from 'flatpickr';
-import 'flatpickr/dist/flatpickr.min.css';
+import 'flatpickr/dist/flatpicker.min.css';
 
 const refs = {
-  startBtn: document.querySelector('button[data-start]'),
-  searchInput: document.querySelector('datetime-picker'),
+  startBtn: document.querySelector('button[data-start'),
+  datetimePickerInput: document.querySelector('#datetime-picker'),
+  daysField: document.querySelector('span[data-days'),
+  hoursField: document.querySelector('span[data-hours]'),
+  minutesField: document.querySelector('span[data-minutes]'),
+  secondsField: document.querySelector('span[data-seconds]'),
 };
-
-refs.startBtn.disabled = true;
-const selectedTime = 0;
+let date = null;
 
 const options = {
   enableTime: true,
@@ -15,29 +17,43 @@ const options = {
   defaultDate: new Date(),
   minuteIncrement: 1,
   onClose(selectedDates) {
-    const selectedDate = selectedDates[0].getTime();
-    const currentDate = this.config.defaultDate.getTime();
-    if (currentDate > selectedDate) {
+    date = selectedDates[0].getTime();
+    if (date <= options.defaultDate.getTime()) {
       alert('Please choose a date in the future');
       return;
     }
-    selectedTime = selectedDates[0];
-    refs.start.removeAttribute('disabled');
-    /*console.log(selectedDates[0]);*/
+    startBtn.disabled = false;
   },
 };
 
-flatpickr(refs.searchInput, options);
+flatpickr('#datetime-picker', options);
+startBtn.disabled = true;
 
-refs.startBtn.addEventListener('click', start);
+const timer = {
+  isActive: false,
+  start() {
+    if (this.isActive) {
+      return;
+    }
+    const startTime = Date.now();
+    this.isActive = true;
 
-function start() {
-  setInterval(() => {
-    const currentTime = Date.now();
-    console.log(currentTime);
-    const backTimer = selectedTime.getTime() - currentTime;
-    console.log(convertMs(backTimer));
-  }, 1000);
+    setInterval(() => {
+      const currentTime = Date.now();
+      const deltaTime = currentTime - startTime;
+      const time = convertMs(deltaTime);
+      updateClockFace(time);
+    }, 1000);
+  },
+};
+
+refs.startBtn.addEventListener('click', timer.start.bind(timer));
+
+function updateClockFace({ days, hours, minutes, seconds }) {
+  refs.days.textContent = days;
+  refs.hours.textContent = hours;
+  refs.minutes.textContent = minutes;
+  refs.seconds.textContent = seconds;
 }
 
 function addLeadingZero(value) {
@@ -57,3 +73,26 @@ function convertMs(ms) {
 
   return { days, hours, minutes, seconds };
 }
+
+/*startBtn.disabled = true;
+startBtn.addEventListener('click', () => {
+  timer.end();
+});
+
+const timer = {
+  isActive: false,
+  end() {
+    if (this.isActive) {
+      return;
+    }
+    const endTime = Date.now();
+    this.isActive = true;
+
+    setInterval(() => {
+      const currentTime = Date.now();
+      const ms = currentTime - endTime;
+      const { days, hours, minutes, seconds } = convertMs(ms);
+      updateTimerValue();
+    }, 1000);
+  },
+};*/
