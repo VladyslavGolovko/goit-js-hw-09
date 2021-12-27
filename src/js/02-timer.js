@@ -46,7 +46,9 @@ const timer = {
   },
 };
 
-refs.startBtn.addEventListener('click', timer.start.bind(timer));
+refs.startBtn.addEventListener('click', () => {
+  timer.start();
+});
 
 function updateClockFace({ days, hours, minutes, seconds }) {
   refs.days.textContent = days;
