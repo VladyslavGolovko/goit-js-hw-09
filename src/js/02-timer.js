@@ -27,7 +27,6 @@ const options = {
 };
 
 flatpickr(refs.datetimePickerInput, options);
-startBtn.disabled = true;
 
 const timer = {
   isActive: false,
