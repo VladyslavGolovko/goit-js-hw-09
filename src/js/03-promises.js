@@ -4,7 +4,6 @@ const refs = {
 };
 
 refs.form.addEventListener('submit', onBtnSubmit);
-let position = 0;
 
 function onBtnSubmit(e) {
   e.preventDefault();
