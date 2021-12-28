@@ -87,7 +87,7 @@ function createPromise(position, delay) {
   return promise;
 }*/
 
-import Notiflix from 'notiflix';
+/*import Notiflix from 'notiflix';
 const refs = {
   form: document.querySelector('form'),
 };
