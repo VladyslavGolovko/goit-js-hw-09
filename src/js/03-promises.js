@@ -9,9 +9,9 @@ function onBtnSubmit(e) {
   e.preventDefault();
   let position = 0;
 
-  let delay = Number(e.currentTarget.delay.value);
-  let step = Number(e.currentTarget.step.value);
-  let amount = Number(e.currentTarget.amount.value);
+  let delay = Number(e.currentTarget.elements.delay.value);
+  let step = Number(e.currentTarget.elements.step.value);
+  let amount = Number(e.currentTarget.elements.amount.value);
 
   const setIntervalId = setInterval(() => {
     if (position === amount) {
@@ -90,7 +90,7 @@ function createPromise(position, delay) {
     }, delay);
   });
   return promise;
-}*/
+}
 
 /*import Notiflix from 'notiflix';
 const refs = {
