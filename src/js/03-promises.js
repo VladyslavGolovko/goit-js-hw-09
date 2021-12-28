@@ -7,7 +7,7 @@ formEl.addEventListener('click', onFormSubmit);
 
 function onFormSubmit(e) {
   e.preventDefault();
-  const delay = Number(e.currentTarget.elements.delay.value);
+  let delay = Number(e.currentTarget.elements.delay.value);
   const amount = Number(e.currentTarget.elements.amount.value);
   const step = Number(e.currentTarget.elements.step.value);
 
