@@ -14,7 +14,7 @@ function onBtnSubmit(e) {
   let step = Number(e.currentTarget.step.value);
   let amount = Number(e.currentTarget.amount.value);
 
-  setIntervalId = setInterval(() => {
+  const setIntervalId = setInterval(() => {
     if (position === amount) {
       clearInterval(setIntervalId);
       position = 0;
