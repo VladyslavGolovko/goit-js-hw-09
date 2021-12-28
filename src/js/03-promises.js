@@ -1,4 +1,4 @@
-import Notiflix from 'notiflix';
+/*import Notiflix from 'notiflix';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 const formEl = document.querySelector('form');
 let position = 0;
@@ -40,9 +40,9 @@ function createPromise(position, delay) {
     }, delay);
   });
   return promise;
-}
+}*/
 
-/*import Notiflix from 'notiflix';
+import Notiflix from 'notiflix';
 const refs = {
   form: document.querySelector('form'),
 };
