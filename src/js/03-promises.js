@@ -1,4 +1,4 @@
-import Notiflix from 'notiflix';
+/*import Notiflix from 'notiflix';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 const formEl = document.querySelector('.form');
 let position = 0;
@@ -40,9 +40,9 @@ function createPromise(position, delay) {
     }, delay);
   });
   return promise;
-}
+}*/
 
-/*import Notiflix from 'notiflix';
+import Notiflix from 'notiflix';
 const refs = {
   form: document.querySelector('form'),
 };
@@ -53,11 +53,16 @@ function onBtnSubmit(e) {
   e.preventDefault();
   let position = 0;
 
-  let delay = Number(e.currentTarget.delay.value);
+  let delay1 = Number(e.currentTarget.delay.value);
   let step = Number(e.currentTarget.step.value);
   let amount = Number(e.currentTarget.amount.value);
 
-  const setIntervalId = setInterval(() => {
+  for (let i = 0; i < amount; i += 1) {
+    let position = i + 1;
+    let delay = delay1 + step * i;
+    createPromise()
+
+  /*const setIntervalId = setInterval(() => {
     if (position === amount) {
       clearInterval(setIntervalId);
       position = 0;
@@ -76,9 +81,9 @@ function onBtnSubmit(e) {
         Notiflix.Notify.failure(`❌ Rejected promise ${position} in ${delay}ms`);
       });
   }, delay);
-}
+}*/
 
-function createPromise(position, delay) {
+/*function createPromise(position, delay) {
   const promise = new Promise((resolve, reject) => {
     setInterval(() => {
       const shouldResolve = Math.random() > 0.3;
@@ -90,7 +95,7 @@ function createPromise(position, delay) {
     }, delay);
   });
   return promise;
-}
+}*/
 
 /*import Notiflix from 'notiflix';
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
@@ -136,7 +141,7 @@ function createPromise(position, delay) {
   return promise;
 }
 
-/*import Notiflix from 'notiflix';
+import Notiflix from 'notiflix';
 const refs = {
   form: document.querySelector('form'),
 };
@@ -237,4 +242,4 @@ function createPromise(position, delay) {
   } else {
     // Reject
   }
-}*/
+}
