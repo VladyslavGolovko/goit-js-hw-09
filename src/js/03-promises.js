@@ -11,7 +11,7 @@ function onFormSubmit(e) {
   const amount = Number(e.currentTarget.elements.amount.value);
   const step = Number(e.currentTarget.elements.step.value);
 
-  for (let i = 0; i <= amount; i += 1) {
+  for (let i = 1; i <= amount; i += 1) {
     createPromise(position, delay)
       .then(({ position, delay }) => {
         Notiflix.Notify.success(`✅ Fulfilled promise ${position} in ${delay}ms`, {
