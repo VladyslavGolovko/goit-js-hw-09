@@ -4,16 +4,20 @@ const refs = {
 };
 
 refs.form.addEventListener('submit', onBtnSubmit);
+let position = 0;
 
 function onBtnSubmit(e) {
   e.preventDefault();
+  let position = 0;
 
   let delay = Number(e.currentTarget.delay.value);
   let step = Number(e.currentTarget.step.value);
   let amount = Number(e.currentTarget.amount.value);
 
-  setInterval(() => {
-    if (position >= amount) {
+  setIntervalId = setInterval(() => {
+    if (position === amount) {
+      clearInterval(setIntervalId);
+      position = 0;
       return;
     }
     position += 1;
